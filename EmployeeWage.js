@@ -23,6 +23,7 @@ console.log("Welcome to EmployeeWage");
  const PART_TIME_HRS = 4;
  const FULL_TIME_HRS = 8;
  const WAGE_PER_HR = 20;
+ const MAX_WORKING_DAYS = 20;
 let empCheck = Math.floor(Math.random() * 10 % 4);//random values in btwn 1-4
 
 let empHrs;
@@ -49,8 +50,21 @@ function getEmployeeWage(eCheck){
       * UC4 solve using switch case
      */
         
-      getEmployeeWage(empCheck);
-          let empWage = empHrs * WAGE_PER_HR;
-          console.log("Employee Wage is: "+empWage);
+      //getEmployeeWage(empCheck);
+        //   let empWage = empHrs * WAGE_PER_HR;
+        //   console.log("Employee Wage is: "+empWage);
 
+        /**UC5 calculate wages for a month
+         * 
+         */ 
+         let totalEmpHrs = 0;
+         for (let day = 1; day <= MAX_WORKING_DAYS; day++) {
+             let employeeCheck = Math.floor(Math.random() * 10) % 3;
+             let emphrs = getEmployeeWage(employeeCheck);
+             totalEmpHrs += emphrs;
          
+         }
+         
+         let totalEmpWage = totalEmpHrs * WAGE_PER_HR;
+         console.log(" Total Employee Wage is: " + totalEmpWage + " for Total Employee Work Hours: " + totalEmpHrs);
+        
