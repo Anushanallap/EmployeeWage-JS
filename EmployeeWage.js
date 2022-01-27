@@ -24,6 +24,7 @@ console.log("Welcome to EmployeeWage");
  const FULL_TIME_HRS = 8;
  const WAGE_PER_HR = 20;
  const MAX_WORKING_DAYS = 20;
+ const MAX_WORKING_HOURS = 160;
 let empCheck = Math.floor(Math.random() * 10 % 4);//random values in btwn 1-4
 
 let empHrs;
@@ -38,7 +39,7 @@ function getEmployeeWage(eCheck){
            empHrs = FULL_TIME_HRS;
            break;
        default:
-           empHrs = 0;
+           return 0;
    }
 }
    
@@ -54,17 +55,34 @@ function getEmployeeWage(eCheck){
         //   let empWage = empHrs * WAGE_PER_HR;
         //   console.log("Employee Wage is: "+empWage);
 
-        /**UC5 calculate wages for a month
+        /**UC5 calculate wages for a month And total working days
          * 
          */ 
-         let totalEmpHrs = 0;
+         /*let totalEmpHrs = 0;
+         let totalWorkingDays = 0;
          for (let day = 1; day <= MAX_WORKING_DAYS; day++) {
              let employeeCheck = Math.floor(Math.random() * 10) % 3;
              let emphrs = getEmployeeWage(employeeCheck);
              totalEmpHrs += emphrs;
+             totalWorkingDays++;
          
+         }*/
+         let totalEmpHrs  = 0;
+         let totalWorkigDays = 0;
+         let empDailyWageArray = new Array();
+
+         function calculateWage (empHrs){
+             return empHrs * WAGE_PER_HR;
          }
-         
-         let totalEmpWage = totalEmpHrs * WAGE_PER_HR;
-         console.log(" Total Employee Wage is: " + totalEmpWage + " for Total Employee Work Hours: " + totalEmpHrs);
-        
+         while (totalEmpHrs<MAX_WORKING_HOURS && totalWorkigDays<MAX_WORKING_DAYS){
+            totalWorkigDays++;
+         let employeeCheck = Math.floor(Math.random() * 10) % 3;
+         let emphrs = getEmployeeWage(employeeCheck);
+         totalEmpHrs += emphrs;
+          empDailyWageArray.push(calculateWage(emphrs));   
+         }
+
+         let totalEmpWage = calculateWage(totalEmpHrs);
+         console.log("Daily Employee Wage stored in Array:\n"+empDailyWageArray);
+            console.log(" Total Employee Wage is: " + totalEmpWage + " for Total Employee Work Hours: " + totalEmpHrs
+                                                                +" Total Working Days: "+totalWorkigDays);
