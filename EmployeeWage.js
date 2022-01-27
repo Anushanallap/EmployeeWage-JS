@@ -46,10 +46,11 @@ function getEmployeeWage(eCheck){
 
      /**UC3  Add part time empoyee and wage
       * 
+      * UC4 solve using switch case
      */
         
       getEmployeeWage(empCheck);
           let empWage = empHrs * WAGE_PER_HR;
           console.log("Employee Wage is: "+empWage);
 
-          
+         
