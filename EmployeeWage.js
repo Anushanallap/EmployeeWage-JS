@@ -8,11 +8,11 @@ console.log("Welcome to EmployeeWage");
     const IS_ABSENT = 0;
 
 
-    let employeeCheck = Math.floor(Math.random() * 10 % 2);
-    if (employeeCheck == IS_PRESENT) {
-     console.log("Employee Is Present");
-    } else
-     console.log("Employee Is Absent")
+    // let employeeCheck = Math.floor(Math.random() * 10 % 2);
+    // if (employeeCheck == IS_PRESENT) {
+    //  console.log("Employee Is Present");
+    // } else
+    //  console.log("Employee Is Absent")
 
     /**UC2  Calculate Daily Employee Wage based on part time and full time
  * 
@@ -24,7 +24,11 @@ console.log("Welcome to EmployeeWage");
  const FULL_TIME_HRS = 8;
  const WAGE_PER_HR = 20;
 let empCheck = Math.floor(Math.random() * 10 % 4);//random values in btwn 1-4
+
 let empHrs;
+function getEmployeeWage(eCheck){
+            
+
    switch (empCheck) {
        case IS_PART_TIME:
            empHrs = PART_TIME_HRS;
@@ -35,9 +39,17 @@ let empHrs;
        default:
            empHrs = 0;
    }
+}
    
-   let empWage = empHrs * WAGE_PER_HR;
-   console.log("Employee Wage is: "+empWage);
+//    let empWage = empHrs * WAGE_PER_HR;
+//    console.log("Employee Wage is: "+empWage);
 
-     
+     /**UC3  Add part time empoyee and wage
+      * 
+     */
+        
+      getEmployeeWage(empCheck);
+          let empWage = empHrs * WAGE_PER_HR;
+          console.log("Employee Wage is: "+empWage);
+
           
