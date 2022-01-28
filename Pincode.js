@@ -27,5 +27,21 @@ function Validatealphabets(pincode) {
 
 }
 
+//console.log(Validatealphabets("400088"));
+//console.log(Validatealphabets("T400088"));
+
+/**UC3 restrict the pin code from taking alphabets or special characters 
+ * at the end
+ * check for 400088B
+ * @returns which returns fail
+ */
+ function Validatealphabets(pincode) {
+
+    let regexexpression  = RegExp('^[0-9]{5}[A-Z]{1}');
+    let rs  = regexexpression.test(pincode);
+    console.log(rs);
+
+}
+
 console.log(Validatealphabets("400088"));
-console.log(Validatealphabets("T400088"));
+console.log(Validatealphabets("400088B"));
